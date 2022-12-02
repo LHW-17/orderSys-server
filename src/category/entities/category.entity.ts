@@ -4,7 +4,7 @@ import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 export class Category {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
+  @Column({ nullable: false })
   categoryName: string;
   @Column()
   categoryDesc: string;

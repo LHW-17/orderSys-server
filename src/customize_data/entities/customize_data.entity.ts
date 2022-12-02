@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Product } from 'src/product/entities/product.entity';
+import {
+  Column,
+  Entity,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  JoinColumn,
+} from 'typeorm';
 
 export type CustomOption = {
   name: string;
@@ -8,8 +15,9 @@ export type CustomOption = {
 export class CustomizeData {
   @PrimaryGeneratedColumn()
   id: number;
-  @Column()
-  itemId: number;
+  /* @OneToOne(() => Product)
+  @JoinColumn()
+  product: Product; */
   @Column('simple-json')
   sizeOptions: CustomOption[];
   @Column('simple-json')
