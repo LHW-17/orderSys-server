@@ -2,11 +2,13 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { CategoryModule } from './category/category.module';
-import { UserModule } from './user/user.module';
-import { ProductModule } from './product/product.module';
-import { CustomizeDataModule } from './customize_data/customize_data.module';
-import { OrderModule } from './order/order.module';
+import { CategoryModule } from './modules/category/category.module';
+import { OrderModule } from './modules/order/order.module';
+import { ProductModule } from './modules/product/product.module';
+import { ProductPropertyModule } from './modules/product_property/product_property.module';
+import { UserModule } from './modules/user/user.module';
+import { UploadModule } from './modules/upload/upload.module';
+
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -25,8 +27,9 @@ import { OrderModule } from './order/order.module';
     CategoryModule,
     UserModule,
     ProductModule,
-    CustomizeDataModule,
+    ProductPropertyModule,
     OrderModule,
+    UploadModule,
   ],
   controllers: [AppController],
   providers: [AppService],
