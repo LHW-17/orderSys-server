@@ -13,8 +13,8 @@ export class CategoryService {
   create(createCategoryDto: CreateCategoryDto) {
     const data = new Category();
     data.categoryName = createCategoryDto.categoryName;
-    data.categoryDesc = createCategoryDto.categoryDesc;
-    data.categoryOrderIndex = createCategoryDto.categoryOrderIndex;
+    data.show_status = createCategoryDto.show_status;
+    data.show_index = createCategoryDto.show_index;
     return this.category.save(data);
   }
 

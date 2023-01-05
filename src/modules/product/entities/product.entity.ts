@@ -1,12 +1,12 @@
 import { Category } from 'src/modules/category/entities/category.entity';
-import { CustomizeData } from 'src/modules/customize_data/entities/customize_data.entity';
+import { ProductProperty } from 'src/modules/product_property/entities/product_property.entity';
 import {
   Column,
   Entity,
   JoinColumn,
-  OneToOne,
   PrimaryGeneratedColumn,
   ManyToOne,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -15,20 +15,15 @@ export class Product {
   id: number;
   @Column()
   itemName: string;
-  @Column({
-    type: 'decimal',
-    precision: 10,
-    scale: 2,
-  })
+  @Column()
   primaryPrice: number;
   @Column('int')
   inventory: number;
+  @Column()
+  is_selling: boolean;
   @ManyToOne(() => Category)
   @JoinColumn()
   category: Category;
-  @OneToOne(() => CustomizeData)
-  @JoinColumn()
-  customizeData: CustomizeData;
   @Column()
   itemCategoryName: string;
   @Column()
@@ -37,4 +32,6 @@ export class Product {
   itemDesc: string;
   @Column()
   itemImg: string;
+  @OneToMany(() => ProductProperty, (properties) => properties.product)
+  properties: ProductProperty[];
 }

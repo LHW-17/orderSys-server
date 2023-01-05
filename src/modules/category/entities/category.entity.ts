@@ -8,9 +8,9 @@ export class Category {
   @Column({ nullable: false })
   categoryName: string;
   @Column()
-  categoryDesc: string;
+  show_index: number;
   @Column()
-  categoryOrderIndex: number;
+  show_status: boolean;
   @OneToMany(() => Product, (Product) => Product.category)
   products: Product[];
 }

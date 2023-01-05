@@ -1,5 +1,5 @@
 export class CreateCategoryDto {
   categoryName: string;
-  categoryDesc: string;
-  categoryOrderIndex: number;
+  show_status: boolean;
+  show_index: number;
 }

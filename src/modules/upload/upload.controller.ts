@@ -6,7 +6,9 @@ import {
 } from '@nestjs/common';
 import { UploadService } from './upload.service';
 import { FileInterceptor } from '@nestjs/platform-express';
+import { ApiTags } from '@nestjs/swagger';
 
+@ApiTags('上传图片接口')
 @Controller('upload')
 export class UploadController {
   constructor(private readonly uploadService: UploadService) {}
