@@ -6,7 +6,6 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
-import { PropertyName } from 'src/enum';
 
 @Entity()
 export class ProductProperty {
@@ -14,15 +13,13 @@ export class ProductProperty {
   id: number;
   @ManyToOne(() => Product)
   product: Product;
-  @Column({
-    type: 'enum',
-    enum: PropertyName,
-    default: 0,
-  })
+  @Column()
   name: string;
   @Column()
   option: string;
-  @Column()
+  @Column({
+    default: false,
+  })
   is_default: boolean;
   @Column({
     default: 0,

@@ -16,7 +16,7 @@ export class UploadController {
   @Post('image')
   @UseInterceptors(FileInterceptor('file'))
   upload(@UploadedFile() file) {
-    console.log('file', file);
-    return 'success';
+    // console.log('file', file);
+    return file.filename;
   }
 }

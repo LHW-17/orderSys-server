@@ -1,11 +1,11 @@
 export class CreateProductDto {
   itemName: string;
+  primaryPrice: number;
+  inventory: number;
+  is_selling: boolean;
   categoryId: number;
-  itemCategoryName: string;
   orderIndex: number;
   itemDesc: string;
   itemImg: string;
-  customizeDataId: number;
-  inventory: number;
-  primaryPrice: number;
+  // properties: Property[];
 }

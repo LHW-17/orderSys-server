@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Put,
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CategoryService } from './category.service';
@@ -38,6 +39,11 @@ export class CategoryController {
     @Body() updateCategoryDto: UpdateCategoryDto,
   ) {
     return this.categoryService.update(id, updateCategoryDto);
+  }
+
+  @Put(':id')
+  updateShow(@Param('id') id: number) {
+    return this.categoryService.updateShow(id);
   }
 
   @Delete(':id')

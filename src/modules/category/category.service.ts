@@ -34,6 +34,16 @@ export class CategoryService {
     return this.category.update(id, updateCategoryDto);
   }
 
+  async updateShow(id: number) {
+    let [data] = await this.category.find({
+      where: {
+        id: id,
+      },
+    });
+    data.show_status = !data.show_status;
+    return this.category.update(id, data);
+  }
+
   remove(id: number) {
     return this.category.delete(id);
   }

@@ -9,7 +9,7 @@ import { extname, join } from 'path';
   imports: [
     MulterModule.register({
       storage: diskStorage({
-        destination: join(__dirname, '../images'),
+        destination: join(__dirname, '../../images'),
         filename: (req, file, callback) => {
           const fileName = `${
             new Date().getTime() + extname(file.originalname)

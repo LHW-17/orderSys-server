@@ -28,7 +28,10 @@ export class ProductPropertyController {
   findAll() {
     return this.productPropertyService.findAll();
   }
-
+  @Get(':id/:name')
+  findClass(@Param('id') id: string, @Param('name') name: string) {
+    return this.productPropertyService.findClass(+id, name);
+  }
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.productPropertyService.findOne(+id);

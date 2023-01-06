@@ -25,8 +25,6 @@ export class Product {
   @JoinColumn()
   category: Category;
   @Column()
-  itemCategoryName: string;
-  @Column()
   orderIndex: number;
   @Column()
   itemDesc: string;
