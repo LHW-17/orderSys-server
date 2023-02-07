@@ -52,6 +52,7 @@ export class ProductPropertyService {
         product: product,
         name: name,
       },
+      relations: ['product'],
     });
   }
 

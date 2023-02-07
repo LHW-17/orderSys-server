@@ -8,6 +8,7 @@ import { ProductModule } from './modules/product/product.module';
 import { ProductPropertyModule } from './modules/product_property/product_property.module';
 import { UserModule } from './modules/user/user.module';
 import { UploadModule } from './modules/upload/upload.module';
+import { MiniappModule } from './modules/miniapp/miniapp.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { UploadModule } from './modules/upload/upload.module';
     ProductPropertyModule,
     OrderModule,
     UploadModule,
+    MiniappModule,
   ],
   controllers: [AppController],
   providers: [AppService],

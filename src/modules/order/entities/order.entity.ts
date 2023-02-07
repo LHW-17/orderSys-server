@@ -3,7 +3,7 @@ import { User } from 'src/modules/user/entities/user.entity';
 import {
   Column,
   Entity,
-  OneToOne,
+  ManyToOne,
   PrimaryGeneratedColumn,
   JoinColumn,
   OneToMany,
@@ -11,25 +11,27 @@ import {
   UpdateDateColumn,
   Timestamp,
 } from 'typeorm';
+import { orderItem } from './order_item.entity';
 
 @Entity()
 export class Order {
   @PrimaryGeneratedColumn()
   id: number;
-  @OneToOne(() => User)
-  @JoinColumn()
+  @ManyToOne(() => User, (user) => user.orders)
   user: User;
 
-  @Column('simple-json')
-  products: number[];
+  @OneToMany(() => orderItem, (orderItem) => orderItem.order)
+  orderItems: orderItem[];
   @Column()
   totalPrice: number;
-  @Column('simple-json')
-  customizeDetails: string[];
+  @Column()
+  orderType: string;
+  @Column()
+  orderStatus: string;
   @CreateDateColumn()
   createDate: Date;
   @UpdateDateColumn()
   updateDate: Date;
-  @Column({ type: 'timestamp' })
+  @Column({ type: 'timestamp', nullable: true })
   completeTime: Timestamp;
 }
