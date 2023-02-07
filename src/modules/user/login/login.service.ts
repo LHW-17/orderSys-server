@@ -5,7 +5,7 @@ import { User } from '../entities/user.entity';
 import { HttpService } from '@nestjs/axios';
 import { LoginDto } from '../dto/login.dto';
 import { ApiTags } from '@nestjs/swagger';
-
+import wxApp from 'src/common/wxApp';
 @Injectable()
 export class LoginService {
   constructor(
@@ -18,7 +18,7 @@ export class LoginService {
     let response = '';
     let { data } = await this.httpService
       .get(
-        `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxd7b5e86d10e6bd6c&secret=40da43c16427a891958df44f4c739ef9`,
+        `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${wxApp.appid}&secret=${wxApp.secret}`,
       )
       .toPromise();
 
