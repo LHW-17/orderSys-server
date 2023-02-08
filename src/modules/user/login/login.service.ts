@@ -15,7 +15,7 @@ export class LoginService {
   ) {}
   @ApiTags('微信获取手机号登录')
   async wxLogin(loginDto: LoginDto) {
-    let response = '';
+    //获取手机号
     let { data } = await this.httpService
       .get(
         `https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${wxApp.appid}&secret=${wxApp.secret}`,
@@ -43,14 +43,16 @@ export class LoginService {
       newUser.userPhone = phone;
 
       this.user.save(newUser);
-      response = 'new user';
     } else {
       this.user.update(user.id, {
         avatarUrl: loginDto.avatarUrl,
         userName: loginDto.nickName,
       });
-      response = 'update user';
     }
-    return response;
+    return this.user.findOne({
+      where: {
+        userPhone: phone,
+      },
+    });
   }
 }

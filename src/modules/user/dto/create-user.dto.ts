@@ -1,6 +1,7 @@
 export class CreateUserDto {
+  id: number;
   userName: string;
   userPhone: string;
   userAddress: string;
-  openid: string;
+  avatarUrl: string;
 }
