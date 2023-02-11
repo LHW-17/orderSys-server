@@ -9,6 +9,7 @@ import { ProductPropertyModule } from './modules/product_property/product_proper
 import { UserModule } from './modules/user/user.module';
 import { UploadModule } from './modules/upload/upload.module';
 import { MiniappModule } from './modules/miniapp/miniapp.module';
+import { WebsocketModule } from './modules/websocket/websocket.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { MiniappModule } from './modules/miniapp/miniapp.module';
     OrderModule,
     UploadModule,
     MiniappModule,
+    WebsocketModule,
   ],
   controllers: [AppController],
   providers: [AppService],
