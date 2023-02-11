@@ -11,6 +11,6 @@ export class CreateOrderDto {
   totalPrice: number;
   itemList: itemDto[];
   orderType: string;
-  orderStatus: string;
+  orderStatus: number;
   userId: number;
 }

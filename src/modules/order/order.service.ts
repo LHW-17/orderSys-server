@@ -19,7 +19,7 @@ export class OrderService {
     @InjectRepository(Product)
     private readonly product: Repository<Product>,
   ) {}
-  //未完成
+  //创建订单
   async create(createOrderDto: CreateOrderDto) {
     const data = new Order();
     data.orderType = createOrderDto.orderType;

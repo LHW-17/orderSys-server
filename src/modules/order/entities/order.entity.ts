@@ -27,7 +27,7 @@ export class Order {
   @Column()
   orderType: string;
   @Column()
-  orderStatus: string;
+  orderStatus: number;
   @CreateDateColumn()
   createDate: Date;
   @UpdateDateColumn()
